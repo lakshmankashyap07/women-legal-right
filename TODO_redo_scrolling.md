@@ -1,0 +1,4 @@
+- [x] Review the current scrolling logic in public/script.js, specifically the isNearBottom function and scrollIntoView calls
+- [x] Verify if the logic correctly prevents auto-scrolling when the user is reading previous messages
+- [x] If needed, update the scrolling logic to improve prevention of auto-scrolling
+- [x] Update the original TODO.md to mark the item as completed

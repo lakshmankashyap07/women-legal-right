@@ -1,0 +1,140 @@
+CYBERCRIME COMPLAINT TEMPLATE
+============================
+
+For filing complaint at https://cybercrime.gov.in/
+
+[Police Station/Cyber Crime Cell]
+[District, State]
+[Date]
+
+To,
+The Officer In-Charge
+Cyber Crime Investigation Cell
+[Police Station Name/District]
+
+Subject: Complaint regarding Cyber Crime under Section [Relevant Section] of IT Act, 2000 / IPC
+
+Respected Sir/Madam,
+
+I, [Your Full Name], aged [Age] years, resident of [Complete Address], do hereby lodge this complaint regarding cyber crime committed against me.
+
+COMPLAINANT DETAILS:
+==================
+Name: [Your Full Name]
+Age: [Age]
+Gender: [Male/Female/Other]
+Address: [Complete Residential Address]
+Contact Number: [Phone Number]
+Email: [Email Address]
+Occupation: [Occupation]
+Aadhaar Number: [Aadhaar Number, if willing to provide]
+
+INCIDENT DETAILS:
+================
+
+Date and Time of First Incident: [Date] at [Time]
+Nature of Cyber Crime:
+[ ] Cyber Stalking/Harassment
+[ ] Online Defamation
+[ ] Impersonation/Fake Profile
+[ ] Revenge Porn/Non-consensual intimate images
+[ ] Cyber Bullying
+[ ] Online Threats
+[ ] Hacking/Unauthorized Access
+[ ] Identity Theft
+[ ] Financial Fraud
+[ ] Other: [Specify]
+
+PLATFORM WHERE INCIDENT OCCURRED:
+================================
+[ ] Social Media (Facebook/Twitter/Instagram/etc.): [Platform Name]
+[ ] Dating App: [App Name]
+[ ] Email: [Email Provider]
+[ ] Messaging App (WhatsApp/Telegram/etc.): [App Name]
+[ ] Website/Forum: [Website URL]
+[ ] Gaming Platform: [Platform Name]
+[ ] Other: [Specify]
+
+DETAILED DESCRIPTION:
+====================
+[Provide complete details of the cyber crime:
+- How did you discover the incident?
+- What content was posted/shared?
+- Screenshots taken? [Yes/No]
+- Any messages received?
+- URLs/links involved?
+- Usernames/IDs of perpetrators?
+- Timeline of events]
+
+SUSPECTED ACCUSED DETAILS:
+=========================
+[Provide as much information as possible]
+
+1. Name: [Known/Suspected Name]
+   Username/Handle: [Social Media Handle]
+   Email: [Email Address]
+   Phone: [Phone Number]
+   Platform Profile: [Profile URL]
+   IP Address: [If known]
+   Location: [If known]
+
+2. [Add more suspects if applicable]
+
+IMPACT/EFFECTS:
+==============
+[Describe how this has affected you:
+- Emotional distress
+- Reputation damage
+- Privacy violation
+- Financial loss
+- Other consequences]
+
+WITNESSES:
+=========
+1. Name: [Witness Name]
+   Contact: [Phone/Email]
+   Relationship: [How they witnessed/know about incident]
+
+EVIDENCE COLLECTED:
+==================
+[ ] Screenshots of abusive content
+[ ] Messages/Emails
+[ ] URLs/Links
+[ ] Profile information
+[ ] IP logs (if available)
+[ ] Police report (if filed elsewhere)
+[ ] Other: [Specify]
+
+LEGAL SECTIONS INVOKED:
+======================
+This complaint is filed under:
+- Information Technology Act, 2000: Section [66A/66C/66D/66E/67/67A/etc.]
+- Indian Penal Code: Section [354D/509/506/507/etc.]
+- Other: [Specify]
+
+RELIEF SOUGHT:
+=============
+1. Registration of FIR
+2. Investigation and identification of accused
+3. Removal of offensive content
+4. Legal action against perpetrators
+5. Protection from further harassment
+6. Compensation for damages
+
+DECLARATION:
+===========
+I hereby declare that the facts stated above are true and correct to the best of my knowledge. I understand that providing false information is punishable under law.
+
+Date: [Date]
+Place: [Place]
+
+[Your Full Signature]
+[Your Full Name]
+
+ADDITIONAL INFORMATION:
+=====================
+Have you reported this elsewhere? [Yes/No]
+If yes, where and when: [Details]
+Reference Number (if any): [Number]
+
+NOTE: Keep all original evidence safe. Do not delete any content until advised by investigating officer.

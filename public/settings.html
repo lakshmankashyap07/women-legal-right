@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Women Legal Rights Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .settings-sections {
+      width: 100%;
+      flex: 1;
+    }
+    /* Profile Modal Styles */
+    .profile-modal-card { max-width: 450px; width: 100%; border-radius: 16px; overflow: hidden; background: #fff; }
+    .profile-header-section { text-align: center; padding: 2rem 1rem 1.5rem; background: linear-gradient(to bottom, #f8f9fa, #ffffff); border-bottom: 1px solid #f0f0f0; }
+    .profile-avatar-large { width: 100px; height: 100px; margin: 0 auto 1rem; position: relative; }
+    .profile-avatar-large img, .profile-avatar-large .profile-initials-large { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .profile-initials-large { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; }
+    .profile-details-list { padding: 1.5rem; }
+    .detail-item { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #f7f7f7; }
+    .detail-item:last-child { border-bottom: none; }
+    .detail-label { color: #718096; font-size: 0.9rem; }
+    .detail-value { color: #2d3748; font-weight: 600; font-size: 0.95rem; }
+    .modal-actions.centered { justify-content: center; gap: 1rem; padding: 0 1.5rem 1.5rem; }
+    .btn-secondary { background: #edf2f7; color: #4a5568; border: none; padding: 0.6rem 1.2rem; border-radius: 0.5rem; cursor: pointer; }
+    .form-group { margin-bottom: 1rem; padding: 0 1.5rem; }
+    .form-input { width: 100%; padding: 0.6rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; margin-top: 0.3rem; box-sizing: border-box; }
+    .upload-text { display: block; text-align: center; color: #667eea; cursor: pointer; margin-top: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+    .profile-name-display { margin: 0; color: #2d3748; font-size: 1.5rem; }
+    .profile-email-display { color: #718096; margin: 0.2rem 0 0; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <!-- DASHBOARD LAYOUT -->
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">WLR Chat</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-link" id="nav-chat"><span class="nav-icon">💬</span><span class="nav-text">Chat</span></a>
+        <a href="legal-rights.html" class="nav-link" id="nav-legal-rights"><span class="nav-icon">⚖️</span><span class="nav-text">Legal Rights</span></a>
+        <a href="file-complaint.html" class="nav-link" id="nav-complaint"><span class="nav-icon">📝</span><span class="nav-text">File Complaint</span></a>
+        <a href="resources.html" class="nav-link" id="nav-resources"><span class="nav-icon">📚</span><span class="nav-text">Resources</span></a>
+        <a href="awareness.html" class="nav-link" id="nav-awareness"><span class="nav-icon">📢</span><span class="nav-text">Awareness</span></a>
+        <a href="cyber-crime.html" class="nav-link" id="nav-cyber-crime"><span class="nav-icon">💻</span><span class="nav-text">Report Cyber Crime</span></a>
+        <a href="my-documents.html" class="nav-link" id="nav-documents"><span class="nav-icon">📂</span><span class="nav-text">My Document</span></a>
+        <a href="admin.html" class="nav-link" id="nav-admin"><span class="nav-icon">🛡️</span><span class="nav-text">Admin</span></a>
+        <a href="history.html" class="nav-link" id="nav-history"><span class="nav-icon">🕘</span><span class="nav-text">History</span></a>
+        <a href="help.html" class="nav-link" id="nav-help"><span class="nav-icon">❓</span><span class="nav-text">Help</span></a>
+        <a href="settings.html" class="nav-link active" id="nav-settings"><span class="nav-icon">⚙️</span><span class="nav-text">Settings</span></a>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </nav>
+    </aside>
+    <div class="main-wrapper">
+      <header class="navbar">
+        <div class="navbar-title">Settings</div>
+        <div class="navbar-profile">
+          <button id="themeBtn" class="theme-btn" title="Toggle theme">🌓</button>
+          <button id="profileBtn" class="profile-btn" title="Profile">👤</button>
+        </div>
+      </header>
+      <main class="main-content">
+        <div class="settings-sections">
+          <div class="settings-section">
+            <h3><i class="fas fa-user-circle"></i> <span data-i18n="basicInfo">Basic Personal Information</span></h3>
+            <div class="settings-group">
+              <button class="settings-btn" id="settingsEditProfileBtn">
+                <i class="fas fa-user-edit"></i>
+                <span data-i18n="editProfile">Edit Profile</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label" data-i18n="languageLabel">Language</span>
+                  <span class="setting-description" data-i18n="languageDesc">Select your preferred language</span>
+                </div>
+                <div class="setting-control">
+                  <select class="settings-select" id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3><i class="fas fa-shield-alt"></i> <span data-i18n="securitySettings">Security Settings</span></h3>
+            <div class="settings-group">
+              <button class="settings-btn" onclick="openPasswordModal()">
+                <i class="fas fa-key"></i>
+                <span data-i18n="changePassword">Change Password</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label" data-i18n="twoFaLabel">Two-Factor Authentication</span>
+                  <span class="setting-description" data-i18n="twoFaDesc">Enable 2FA for enhanced security</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="2faSwitch">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <!-- 2FA Mock UI -->
+              <div id="2fa-verification-container" style="display: none; padding: 10px 20px; background: #f8f9fa; border-top: 1px solid #eee;">
+                <input type="text" id="2faCodeInput" placeholder="Enter Verification Code" style="padding: 8px; border: 1px solid #ddd; border-radius: 4px; width: 150px;">
+                <button class="primary" onclick="verify2FA()" style="padding: 8px 12px; margin-left: 10px;">Verify</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3><i class="fas fa-phone-alt"></i> <span data-i18n="emergencyContact">Emergency Contact Setup</span></h3>
+            <div class="settings-group">
+              <button class="settings-btn" onclick="editSosContacts()">
+                <i class="fas fa-address-book"></i>
+                <span data-i18n="manageSos">Manage SOS Contacts</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label" data-i18n="panicMode">Panic Mode</span>
+                  <span class="setting-description" data-i18n="panicModeDesc">Activate emergency panic mode with SOS alerts, location sharing, and helpline access</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="panicModeSwitch">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>  
+
+          <!-- <div class="settings-section">
+            <h3><i class="fas fa-gavel"></i> Legal Preferences</h3>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Legal Updates</span>
+                  <span class="setting-description">Get notified about legal rights updates</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="legalUpdates" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Jurisdiction</span>
+                  <span class="setting-description">Select your region for specific laws</span>
+                </div>
+                <div class="setting-control">
+                  <select class="settings-select" id="jurisdictionSelect">
+                    <option value="all">All India</option>
+                    <option value="delhi">Delhi</option>
+                    <option value="mumbai">Mumbai</option>
+                    <option value="bangalore">Bangalore</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div> -->
+
+          <!-- <div class="settings-section">
+            <h3><i class="fas fa-user-secret"></i> Privacy Settings</h3>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Profile Visibility</span>
+                  <span class="setting-description">Control who can see your profile</span>
+                </div>
+                <div class="setting-control">
+                  <select class="settings-select" id="profileVisibilitySelect">
+                    <option value="public">Public</option>
+                    <option value="private" selected>Private</option>
+                  </select>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">📊 Allow Data Usage for Improvements</span>
+                  <span class="setting-description">Help improve our service with anonymous usage data (Yes/No)</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="analytics" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <button class="settings-btn" id="downloadDataBtn">
+                <i class="fas fa-download"></i>
+                <span>Download My Data (PDF of chat history)</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="settings-btn danger" id="deleteAccountBtn">
+                <i class="fas fa-user-times"></i>
+                <span>Delete Account</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div> -->
+
+          <div class="settings-section">
+            <h3><i class="fas fa-bell"></i> Notification Settings</h3>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Chat Notifications</span>
+                  <span class="setting-description">Receive notifications for new messages</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="chatNotifications" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3><i class="fas fa-history"></i> Activity & History</h3>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Last Login</span>
+                  <span class="setting-description" id="lastLoginInfo">Login to view</span>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Account Created</span>
+                  <span class="setting-description" id="accountCreatedInfo">Login to view</span>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Save Chat History</span>
+                  <span class="setting-description">Keep chat history for future reference</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="saveHistory" checked>
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <button class="settings-btn" id="exportDataBtn">
+                <i class="fas fa-download"></i>
+                <span>Export Chat Data</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <button class="settings-btn danger" id="clearHistoryBtn">
+                <i class="fas fa-trash"></i>
+                <span>Clear Chat History</span>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="settings-section">
+            <h3><i class="fas fa-paint-brush"></i> Interface Settings</h3>
+            <div class="settings-group">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Dark Mode</span>
+                  <span class="setting-description">Choose your preferred theme</span>
+                </div>
+                <div class="setting-control">
+                  <label class="toggle-switch">
+                    <input type="checkbox" id="themeSwitch">
+                    <span class="toggle-slider"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="setting-item">
+                <div class="setting-info">
+                  <span class="setting-label">Font Size</span>
+                  <span class="setting-description">Adjust text size</span>
+                </div>
+                <div class="setting-control">
+                  <select class="settings-select" id="fontSizeSelect">
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <button id="emergencyBtn" class="emergency-btn" title="Emergency">🆘 SOS</button>
+  </div>
+
+  <!-- PASSWORD MODAL -->
+  <div id="passwordModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Change Password</h3>
+        <button class="modal-close" onclick="closePasswordModal()">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="passwordForm" onsubmit="handlePasswordChange(event)">
+          <div class="form-group">
+            <label for="currentPassword">Current Password</label>
+            <input type="password" id="currentPassword" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+          </div>
+          <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" id="newPassword" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+          </div>
+          <div class="form-group">
+            <label for="confirmNewPassword">Confirm New Password</label>
+            <input type="password" id="confirmNewPassword" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="primary">Update Password</button>
+            <button type="button" onclick="closePasswordModal()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE MODAL -->
+  <div id="profileModal" class="modal hidden">
+    <div class="modal-content profile-modal-card">
+      <div class="modal-header">
+        <h3>User Profile</h3>
+        <button class="modal-close" id="closeProfileBtn">×</button>
+      </div>
+      
+      <!-- 1. View Profile Section -->
+      <div id="profileViewMode">
+        <div class="profile-header-section">
+          <div class="profile-avatar-large">
+            <img id="viewProfileImg" src="" alt="Profile" style="display:none">
+            <div id="viewProfileInitials" class="profile-initials-large">👤</div>
+          </div>
+          <h2 id="viewProfileName" class="profile-name-display">User Name</h2>
+          <p id="viewProfileEmail" class="profile-email-display">email@example.com</p>
+        </div>
+        
+        <div class="profile-details-list">
+          <div class="detail-item"><span class="detail-label">Account Created</span><span class="detail-value" id="viewProfileCreated">-</span></div>
+          <div class="detail-item"><span class="detail-label">Last Login</span><span class="detail-value" id="viewProfileLogin">-</span></div>
+          <div class="detail-item"><span class="detail-label">Phone Number</span><span class="detail-value" id="viewProfilePhone">Not set</span></div>
+        </div>
+        <div class="modal-actions centered">
+           <button id="editProfileBtn" class="primary" style="width:100%">Edit Profile</button>
+        </div>
+      </div>
+
+      <!-- 2. Edit Profile Option -->
+      <div id="profileEditMode" style="display:none;">
+        <form id="profileForm">
+          <div class="profile-header-section" style="padding-bottom: 0; border: none; background: transparent;">
+            <div class="profile-avatar-large">
+              <img id="editProfilePreview" src="" alt="Preview" style="display:none">
+              <div id="editProfileInitials" class="profile-initials-large">👤</div>
+            </div>
+            <label class="upload-text">Change Photo <input type="file" id="profileImageInput" accept="image/*" style="display:none"></label>
+          </div>
+          <div class="form-group" style="margin-top: 1rem;"><label class="detail-label">Full Name</label><input type="text" id="editProfileName" class="form-input" placeholder="Enter full name"></div>
+          <div class="form-group"><label class="detail-label">Email Address</label><input type="email" id="editProfileEmail" class="form-input" placeholder="Enter email"></div>
+          <div class="form-group"><label class="detail-label">Phone Number</label><input type="tel" id="editProfilePhone" class="form-input" placeholder="Enter phone number"></div>
+          <div class="modal-actions">
+            <button type="button" id="saveProfileBtn" class="primary">Save</button>
+            <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // Password Change Logic
+    function openPasswordModal() {
+      document.getElementById('passwordModal').classList.remove('hidden');
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').classList.add('hidden');
+      document.getElementById('passwordForm').reset();
+    }
+
+    async function handlePasswordChange(event) {
+      event.preventDefault();
+      const currentPassword = document.getElementById('currentPassword').value;
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+
+      // Get email from localStorage or ProfileService
+      let email = localStorage.getItem('userEmail');
+      if (!email && typeof ProfileService !== 'undefined') {
+        const userProfile = ProfileService.load();
+        email = userProfile.email;
+      }
+
+      if (!email) {
+        alert("Please login first or update your profile with an email address.");
+        return;
+      }
+
+      if (newPassword !== confirmNewPassword) {
+        alert("New passwords do not match!");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/change-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, currentPassword, newPassword })
+        });
+
+        const text = await response.text();
+        try {
+          const data = JSON.parse(text);
+          if (response.ok) {
+            alert(data.message || "Password changed successfully!");
+            closePasswordModal();
+          } else {
+            alert(data.error || "Failed to change password.");
+          }
+        } catch (e) {
+          throw new Error(`Server returned non-JSON response: ${text.substring(0, 50)}...`);
+        }
+      } catch (error) {
+        console.error('Error changing password:', error);
+        alert(`Error connecting to server: ${error.message}. Please ensure the backend is running and accessible.`);
+      }
+    }
+
+    // 2FA Logic
+    const twoFaSwitch = document.getElementById('2faSwitch');
+    const twoFaContainer = document.getElementById('2fa-verification-container');
+
+    if (twoFaSwitch) {
+      twoFaSwitch.addEventListener('change', async function() {
+        if (this.checked) {
+          // Get email from localStorage or ProfileService
+          let email = localStorage.getItem('userEmail');
+          if (!email && typeof ProfileService !== 'undefined') {
+            const userProfile = ProfileService.load();
+            email = userProfile.email;
+          }
+
+          if (!email) {
+            alert("Please login first or update your profile with an email address to enable 2FA.");
+            this.checked = false;
+            return;
+          }
+
+          try {
+            const response = await fetch(`${API_URL}/send-2fa`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            });
+
+            const text = await response.text();
+            try {
+              const data = JSON.parse(text);
+              if (response.ok) {
+                twoFaContainer.style.display = 'block';
+                alert(data.devCode ? `Verification code (dev): ${data.devCode}\n\n${data.message}` : (data.message || "Verification code sent to your email."));
+              } else {
+                alert(data.error || "Failed to send verification code.");
+                this.checked = false;
+              }
+            } catch (e) {
+              throw new Error(`Server returned non-JSON response: ${text.substring(0, 50)}...`);
+            }
+          } catch (error) {
+            console.error('Error sending 2FA:', error);
+            alert(`Error connecting to server: ${error.message}. Please ensure the backend is running and accessible.`);
+            this.checked = false;
+          }
+        } else {
+          twoFaContainer.style.display = 'none';
+          alert("Two-Factor Authentication Disabled.");
+        }
+      });
+    }
+
+    async function verify2FA() {
+      const code = document.getElementById('2faCodeInput').value;
+      if (!code) {
+        alert("Please enter the verification code.");
+        return;
+      }
+
+      // Get email from localStorage or ProfileService
+      let email = localStorage.getItem('userEmail');
+      if (!email && typeof ProfileService !== 'undefined') {
+        const userProfile = ProfileService.load();
+        email = userProfile.email;
+      }
+
+      if (!email) {
+        alert("Please login first.");
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_URL}/verify-2fa`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, code })
+        });
+
+        const text = await response.text();
+        try {
+          const data = JSON.parse(text);
+          if (response.ok) {
+            alert("Two-Factor Authentication Verified & Enabled!");
+            twoFaContainer.style.display = 'none';
+            document.getElementById('2faCodeInput').value = '';
+            if (typeof SettingsService !== 'undefined') {
+              SettingsService.saveSetting('twoFactorAuth', true);
+            }
+          } else {
+            alert(data.error || "Invalid code.");
+          }
+        } catch (e) {
+          throw new Error(`Server returned non-JSON response: ${text.substring(0, 50)}...`);
+        }
+      } catch (error) {
+        console.error('Error verifying 2FA:', error);
+        alert(`Error connecting to server: ${error.message}. Please ensure the backend is running and accessible.`);
+      }
+    }
+
+    // SOS Contacts Logic
+    function editSosContacts() {
+      if (typeof openContactsEditor === 'function') {
+        openContactsEditor(null);
+      } else {
+        alert("Emergency features are not fully loaded. Please refresh the page.");
+      }
+    }
+
+    // Download Data Logic
+    const downloadDataBtn = document.getElementById('downloadDataBtn');
+    if (downloadDataBtn) {
+      downloadDataBtn.addEventListener('click', async () => {
+        // Use the shared function from script.js
+        if (typeof downloadHistoryPDF === 'function') {
+          downloadHistoryPDF();
+        } else {
+          alert('PDF download function not available.');
+        }
+      });
+    }
+
+    // Language Translation Logic
+    const translations = {
+      en: {
+        basicInfo: "Basic Personal Information",
+        editProfile: "Edit Profile",
+        languageLabel: "Language",
+        languageDesc: "Select your preferred language",
+        securitySettings: "Security Settings",
+        changePassword: "Change Password",
+        twoFaLabel: "Two-Factor Authentication",
+        twoFaDesc: "Enable 2FA for enhanced security",
+        emergencyContact: "Emergency Contact Setup",
+        manageSos: "Manage SOS Contacts",
+        panicMode: "Panic Mode",
+        panicModeDesc: "Activate emergency panic mode with SOS alerts, location sharing, and helpline access"
+      },
+      hi: {
+        basicInfo: "बुनियादी व्यक्तिगत जानकारी",
+        editProfile: "प्रोफ़ाइल संपादित करें",
+        languageLabel: "भाषा",
+        languageDesc: "अपनी पसंदीदा भाषा चुनें",
+        securitySettings: "सुरक्षा सेटिंग्स",
+        changePassword: "पासवर्ड बदलें",
+        twoFaLabel: "दो-कारक प्रमाणीकरण",
+        twoFaDesc: "बेहतर सुरक्षा के लिए 2FA सक्षम करें",
+        emergencyContact: "आपातकालीन संपर्क सेटअप",
+        manageSos: "एसओएस संपर्क प्रबंधित करें",
+        panicMode: "पैनिक मोड",
+        panicModeDesc: "एसओएस अलर्ट, स्थान साझाकरण और हेल्पलाइन पहुंच के साथ आपातकालीन पैनिक मोड सक्रिय करें"
+      }
+    };
+
+    const languageSelectDropdown = document.getElementById('languageSelect');
+    if (languageSelectDropdown) {
+      languageSelectDropdown.addEventListener('change', function() {
+        const lang = this.value;
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.textContent = translations[lang][key];
+          }
+        });
+      });
+    }
+  </script>
+</body>
+</html>

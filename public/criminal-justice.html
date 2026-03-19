@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criminal Justice - Women Legal Rights Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Profile Modal Styles */
+    .profile-modal-card { max-width: 450px; width: 100%; border-radius: 16px; overflow: hidden; background: #fff; }
+    .profile-header-section { text-align: center; padding: 2rem 1rem 1.5rem; background: linear-gradient(to bottom, #f8f9fa, #ffffff); border-bottom: 1px solid #f0f0f0; }
+    .profile-avatar-large { width: 100px; height: 100px; margin: 0 auto 1rem; position: relative; }
+    .profile-avatar-large img, .profile-avatar-large .profile-initials-large { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .profile-initials-large { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: bold; }
+    .profile-details-list { padding: 1.5rem; }
+    .detail-item { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid #f7f7f7; }
+    .detail-item:last-child { border-bottom: none; }
+    .detail-label { color: #718096; font-size: 0.9rem; }
+    .detail-value { color: #2d3748; font-weight: 600; font-size: 0.95rem; }
+    .modal-actions.centered { justify-content: center; gap: 1rem; padding: 0 1.5rem 1.5rem; }
+    .btn-secondary { background: #edf2f7; color: #4a5568; border: none; padding: 0.6rem 1.2rem; border-radius: 0.5rem; cursor: pointer; }
+    .form-group { margin-bottom: 1rem; padding: 0 1.5rem; }
+    .form-input { width: 100%; padding: 0.6rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; margin-top: 0.3rem; box-sizing: border-box; }
+    .upload-text { display: block; text-align: center; color: #667eea; cursor: pointer; margin-top: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+    .profile-name-display { margin: 0; color: #2d3748; font-size: 1.5rem; }
+    .profile-email-display { color: #718096; margin: 0.2rem 0 0; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <!-- DASHBOARD LAYOUT -->
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-brand">WLR Chat</div>
+      <nav class="sidebar-nav">
+         <a href="index.html" class="nav-link" id="nav-chat"><span class="nav-icon">💬</span><span class="nav-text">Chat</span></a>
+        <a href="legal-rights.html" class="nav-link" id="nav-legal-rights"><span class="nav-icon">⚖️</span><span class="nav-text">Legal Rights</span></a>
+        <a href="file-complaint.html" class="nav-link" id="nav-complaint"><span class="nav-icon">📝</span><span class="nav-text">File Complaint</span></a>
+        <a href="resources.html" class="nav-link" id="nav-resources"><span class="nav-icon">📚</span><span class="nav-text">Resources</span></a>
+        <a href="awareness.html" class="nav-link" id="nav-awareness"><span class="nav-icon">📢</span><span class="nav-text">Awareness</span></a>
+        <a href="cyber-crime.html" class="nav-link" id="nav-cyber-crime"><span class="nav-icon">💻</span><span class="nav-text">Report Cyber Crime</span></a>
+        <a href="my-documents.html" class="nav-link" id="nav-documents"><span class="nav-icon">📂</span><span class="nav-text">My Document</span></a>
+        <a href="admin.html" class="nav-link active" id="nav-admin"><span class="nav-icon">🛡️</span><span class="nav-text">Admin</span></a>
+        <a href="history.html" class="nav-link" id="nav-history"><span class="nav-icon">🕘</span><span class="nav-text">History</span></a>
+        <a href="help.html" class="nav-link" id="nav-help"><span class="nav-icon">❓</span><span class="nav-text">Help</span></a>
+        <a href="settings.html" class="nav-link" id="nav-settings"><span class="nav-icon">⚙️</span><span class="nav-text">Settings</span></a>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </nav>
+    </aside>
+    <div class="main-wrapper">
+      <header class="navbar">
+        <div class="navbar-title">Women Legal Rights Chatbot</div>
+        <div class="navbar-profile">
+          <button id="themeBtn" class="theme-btn" title="Toggle theme">🌓</button>
+          <button id="profileBtn" class="profile-btn" title="Profile">👤</button>
+        </div>
+      </header>
+      <main class="main-content">
+        <div class="legal-intro">
+            <button class="back-btn" onclick="window.location.href='legal-rights.html'" style="margin-bottom: 20px; padding: 8px 16px; cursor: pointer; border: none; background: #eee; border-radius: 4px;">← Back to Legal Rights</button>
+            <h2>Criminal Justice</h2>
+            <div class="content-section">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Criminal Justice is the system that maintains law and order in society and ensures that justice is delivered fairly. It is responsible for preventing crime, punishing offenders, and protecting the rights of innocent people. The criminal justice system mainly consists of three parts: the police, the courts, and the correctional institutions such as prisons. The police are responsible for maintaining public safety, investigating crimes, collecting evidence, and arresting suspects. After investigation, cases are presented in court where judges examine the evidence, listen to both sides, and give a fair judgment according to the law. <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>One of the most important principles of criminal justice is that every person is equal before the law. Everyone has the right to a fair trial, legal representation, and the opportunity to defend themselves. Even a person accused of a crime is considered innocent until proven guilty. The system also ensures that victims of crime receive protection and justice. Legal aid services are provided to those who cannot afford a lawyer, so that justice is not denied because of poverty. Punishments such as fines, imprisonment, or community service are given based on the seriousness of the crime. <br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>In addition to punishment, the criminal justice system also focuses on reform and rehabilitation. Prisons and correctional programs aim to improve the behavior of offenders and help them become responsible citizens. Awareness programs and strict law enforcement also help in reducing crime rates. Overall, the criminal justice system plays a vital role in creating a safe, peaceful, and disciplined society where people can live without fear and trust that justice will be served fairly and equally.</p>
+                
+                <h3 style="margin-top: 20px;">Key Points:</h3>
+                <ul style="list-style-type: disc; margin-left: 20px; line-height: 1.6;">
+                    <li>Right to file FIR</li>
+                    <li>Fair trial in court</li>
+                    <li>Right to legal aid</li>
+                    <li>Protection of victims</li>
+                    <li>Punishment according to law</li>
+                    <li>Equality before law</li>
+                </ul>
+            </div>
+        </div>
+      </main>
+    </div>
+    <button id="emergencyBtn" class="emergency-btn" title="Emergency">🆘 SOS</button>
+  </div>
+
+  <!-- PROFILE MODAL -->
+  <div id="profileModal" class="modal hidden">
+    <div class="modal-content profile-modal-card">
+      <div class="modal-header">
+        <h3>User Profile</h3>
+        <button class="modal-close" id="closeProfileBtn">×</button>
+      </div>
+      
+      <!-- 1. View Profile Section -->
+      <div id="profileViewMode">
+        <div class="profile-header-section">
+          <div class="profile-avatar-large">
+            <img id="viewProfileImg" src="" alt="Profile" style="display:none">
+            <div id="viewProfileInitials" class="profile-initials-large">👤</div>
+          </div>
+          <h2 id="viewProfileName" class="profile-name-display">User Name</h2>
+          <p id="viewProfileEmail" class="profile-email-display">email@example.com</p>
+        </div>
+        
+        <div class="profile-details-list">
+          <div class="detail-item"><span class="detail-label">Account Created</span><span class="detail-value" id="viewProfileCreated">-</span></div>
+          <div class="detail-item"><span class="detail-label">Last Login</span><span class="detail-value" id="viewProfileLogin">-</span></div>
+          <div class="detail-item"><span class="detail-label">Phone Number</span><span class="detail-value" id="viewProfilePhone">Not set</span></div>
+        </div>
+        <div class="modal-actions centered">
+           <button id="editProfileBtn" class="primary" style="width:100%; padding: 10px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Edit Profile</button>
+        </div>
+      </div>
+
+      <!-- 2. Edit Profile Option -->
+      <div id="profileEditMode" style="display:none;">
+        <form id="profileForm">
+          <div class="profile-header-section" style="padding-bottom: 0; border: none; background: transparent;">
+            <div class="profile-avatar-large">
+              <img id="editProfilePreview" src="" alt="Preview" style="display:none">
+              <div id="editProfileInitials" class="profile-initials-large">👤</div>
+            </div>
+            <label class="upload-text">Change Photo <input type="file" id="profileImageInput" accept="image/*" style="display:none"></label>
+          </div>
+          <div class="form-group" style="margin-top: 1rem;"><label class="detail-label">Full Name</label><input type="text" id="editProfileName" class="form-input" placeholder="Enter full name"></div>
+          <div class="form-group"><label class="detail-label">Email Address</label><input type="email" id="editProfileEmail" class="form-input" placeholder="Enter email"></div>
+          <div class="form-group"><label class="detail-label">Phone Number</label><input type="tel" id="editProfilePhone" class="form-input" placeholder="Enter phone number"></div>
+          <div class="modal-actions">
+            <button type="button" id="saveProfileBtn" class="primary" style="padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Save Changes</button>
+            <button type="button" id="cancelEditBtn" class="btn-secondary">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

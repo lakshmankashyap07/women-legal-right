@@ -1,0 +1,85 @@
+FIR COMPLAINT TEMPLATE
+======================
+
+[Police Station Name]
+[District, State]
+[Date]
+
+To,
+The Officer In-Charge
+[Police Station Name]
+
+Subject: Filing of First Information Report (FIR) under Section [Relevant IPC Section]
+
+Respected Sir/Madam,
+
+I, [Your Full Name], [Age], [Occupation], resident of [Complete Address], do hereby report the following incident:
+
+INCIDENT DETAILS:
+================
+
+Date and Time of Incident: [Date] at [Time]
+Place of Incident: [Complete Address where incident occurred]
+
+DESCRIPTION OF INCIDENT:
+[Provide detailed description of what happened. Include:
+- What exactly occurred
+- Who was involved
+- Any witnesses present
+- Any injuries sustained
+- Any property damaged
+- Timeline of events]
+
+COMPLAINANT DETAILS:
+==================
+Name: [Your Full Name]
+Age: [Your Age]
+Gender: [Male/Female/Other]
+Address: [Complete Residential Address]
+Contact Number: [Phone Number]
+Email: [Email Address] (if any)
+Occupation: [Your Occupation]
+
+WITNESSES (if any):
+==================
+1. Name: [Witness 1 Name]
+   Address: [Witness 1 Address]
+   Contact: [Witness 1 Phone]
+
+2. Name: [Witness 2 Name]
+   Address: [Witness 2 Address]
+   Contact: [Witness 2 Phone]
+
+EVIDENCE/ DOCUMENTS ATTACHED:
+============================
+[ ] Medical Reports
+[ ] Photographs
+[ ] Videos
+[ ] Other documents: [Specify]
+
+LEGAL SECTIONS INVOKED:
+======================
+I request that this complaint be registered under the following sections of IPC:
+- Section [Relevant Section Numbers]
+
+PRAYER:
+=======
+I request that:
+1. An FIR be registered immediately
+2. Proper investigation be conducted
+3. Necessary legal action be taken against the accused
+4. I be provided with a copy of the FIR
+
+DECLARATION:
+===========
+I hereby declare that the information provided above is true and correct to the best of my knowledge and belief. I understand that providing false information may lead to legal consequences.
+
+Date: [Date]
+Place: [Place]
+
+[Your Full Signature]
+[Your Full Name]
+
+Copy to:
+- Concerned Authorities
+- Legal Aid Services (if applicable)
