@@ -184,8 +184,8 @@ project/
     <h2>👩‍💻 Team Members</h2>
     <ul>
         <li>Kriya – Frontend Developer</li>
-        <li>Lakshman – Frontend Developer</li>
-        <li>Manjari – Backend Developer</li>
+        <li>Manjari – Frontend Developer</li>
+         <li>Lakshman – Backend Developer</li>
         <li>Madhu – Backend Developer</li>
     </ul>
 </div>
