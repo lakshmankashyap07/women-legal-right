@@ -9,7 +9,7 @@ function showSection(sectionId) {
   document.querySelectorAll(".auth-form-section").forEach(div => {
     div.style.display = "none";
   });
-  
+
   const dashboard = document.querySelector(".dashboard-layout");
   const authContainer = document.getElementById("authContainer");
 
@@ -1020,7 +1020,7 @@ function createEmergencyModal() {
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
       <button class="call-btn" data-number="112" style="flex:1;background:#e53935;color:#fff;padding:12px;border:none;border-radius:8px;cursor:pointer">📞 112</button>
       <button class="call-btn" data-number="181" style="flex:1;background:#d32f2f;color:#fff;padding:12px;border:none;border-radius:8px;cursor:pointer">👩‍⚖️ 181</button>
-      <button class="call-btn" data-number="1091" style="flex:1;background:#b71c1c;color:#fff;padding:12px;border:none;border-radius:8px;cursor:pointer">🚔 1091</button>
+      <button class="call-btn" data-number="1090" style="flex:1;background:#b71c1c;color:#fff;padding:12px;border:none;border-radius:8px;cursor:pointer">🚔 1090</button>
     </div>
 
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;">
@@ -1097,17 +1097,17 @@ function createEmergencyModal() {
 
   document.getElementById('wlrTapToCall').addEventListener('click', () => {
     // default to women's police helpline
-    window.location.href = 'tel:1091';
+    window.location.href = 'tel:1090';
   });
 
   document.getElementById('wlrCopyNumber').addEventListener('click', () => {
-    copyToClipboard('1091');
-    alert('1091 copied to clipboard');
+    copyToClipboard('1090');
+    alert('1090 copied to clipboard');
   });
 
   document.getElementById('wlrAutoCopy').addEventListener('click', () => {
     // copy all helplines
-    const all = '112, 181, 1091';
+    const all = '112, 181, 1090';
     copyToClipboard(all);
     alert('Emergency numbers copied: ' + all);
   });
@@ -1120,6 +1120,7 @@ function createEmergencyModal() {
       alert('Location added to message.');
     }
   });
+  
 
   document.getElementById('wlrWhatsAppLocation').addEventListener('click', async () => {
     const link = await getLocationLink();
@@ -1443,7 +1444,7 @@ EMERGENCY FEATURES NOW ACTIVE:
 • SOS Alert: Ready to send to saved contacts
 • Live Location Sharing: Automatic location updates
 • Emergency Helplines:
-  - Women Helpline: 1091
+  - Women Helpline: 1090
   - Police: 100
   - Emergency: 112
 • Quick Call: One-click calling to emergency services
